@@ -8,6 +8,12 @@ Lo primero que debió realizar el equipo fue definir el marco de trabajo con el 
 #### Link al documento: 
 https://docs.google.com/document/d/1thRTr0KUbwrJ3IF60bCP5ihUJHoP9EpgrqsV31JDlyc/edit#heading=h.2rgcc3n2y4ew
 
+## Ejecución de las ceremonias
+
+En el siguiente documento se puede ver en detalle todas las ceremonias llevadas a cabo por el equipo en esta primera entrega, con sus links a videos y conclusiones correspondientes.
+#### Link al documento: 
+https://docs.google.com/document/d/1X6aE58IjR7A94vQx78ZlicKaooQ1BmBWOQNJSwjXsjA/edit#
+
 ## Definición del proceso de Ingeniería
 El objetivo de este documento es poder formalizar el proceso de ingeniería dentro del cual se trabajó durante esta primera entrega del proyecto, acompañando la definición con imágenes y flujos que ayuden a la comprensión del mismo.
 #### Link al documento: 
@@ -29,4 +35,6 @@ https://docs.google.com/document/d/17TWFxUh3BjTOpaH0Ckq_l8lAkaUmiiEblI_hMEBiCME/
 Nos propusimos tener un documento actualizado que contenga toda la información de las horas-persona dedicadas por cada uno de los integrantes al proyecto. El objetivo del documento fue poder tener una noción general del esfuerzo total demandado por todas las tareas, y a su vez poder verificar qué tan acertados estuvimos a la hora de estimar las horas requeridas por issue.
 #### Link al documento: 
 https://docs.google.com/spreadsheets/d/1v3LcyTUpKj_XPZGuETbqE5WLwMIYGPUel0LtCIyQP3s/edit#gid=0
+
+
 
