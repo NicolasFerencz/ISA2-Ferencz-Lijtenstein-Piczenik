@@ -25,3 +25,8 @@ Para el reporte de bugs, el equipo decidió realizar un testing exploratorio. Un
 #### Link al documento: 
 https://docs.google.com/document/d/17TWFxUh3BjTOpaH0Ckq_l8lAkaUmiiEblI_hMEBiCME/edit?usp=sharing
 
+### Registro de esfuerzo
+Nos propusimos tener un documento actualizado que contenga toda la información de las horas-persona dedicadas por cada uno de los integrantes al proyecto. El objetivo del documento fue poder tener una noción general del esfuerzo total demandado por todas las tareas, y a su vez poder verificar qué tan acertados estuvimos a la hora de estimar las horas requeridas por issue.
+#### Link al documento: 
+https://docs.google.com/spreadsheets/d/1v3LcyTUpKj_XPZGuETbqE5WLwMIYGPUel0LtCIyQP3s/edit#gid=0
+
