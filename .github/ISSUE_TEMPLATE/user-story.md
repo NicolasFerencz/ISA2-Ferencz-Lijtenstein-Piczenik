@@ -1,9 +1,9 @@
 ---
 name: User Story
-about: Tempalte para user stories
+about: Template para user stories
 title: ''
 labels: ''
-assignees: ''
+assignees: NicolasFerencz
 
 ---
 
