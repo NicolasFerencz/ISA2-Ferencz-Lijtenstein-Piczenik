@@ -208,7 +208,9 @@ namespace MinTur.WebApi.Test.Controllers
             CreatedResult createdResult = result as CreatedResult;
 
             _resortManagerMock.VerifyAll();
-            Assert.AreEqual("Si", new ResortDetailsModel(createdResort).Available);
+            string expected = "Si";
+            string actual = new ResortDetailsModel(createdResort).Available;
+            Assert.AreEqual(actual, expected);
         }
 
         [TestMethod]
@@ -224,7 +226,9 @@ namespace MinTur.WebApi.Test.Controllers
             CreatedResult createdResult = result as CreatedResult;
 
             _resortManagerMock.VerifyAll();
-            Assert.AreEqual("No", new ResortDetailsModel(createdResort).Available);
+            string expected = "No";
+            string actual = new ResortDetailsModel(createdResort).Available;
+            Assert.AreEqual(actual, expected);
         }
 
         #region Helpers
