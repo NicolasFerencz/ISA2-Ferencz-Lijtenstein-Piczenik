@@ -16,7 +16,7 @@ namespace MinTur.Models.Out
         public string Description { get; set; }
         public List<ImageBasicInfoModel> Images { get; set; }
         public int PricePerNight { get; set; }
-        public bool Available { get; set; }
+        public string Available { get; set; }
         public List<ReviewDetailsModel> Reviews { get; set; }
         public double Punctuation { get; set; }
 
@@ -33,7 +33,7 @@ namespace MinTur.Models.Out
             Images = resort.Images.Select(i => new ImageBasicInfoModel(i)).ToList();
             Reviews = resort.Reviews.Select(r => new ReviewDetailsModel(r)).ToList();
             PricePerNight = resort.PricePerNight;
-            Available = resort.Available;
+            Available = resort.Available ? "Si" : "No";
             Punctuation = resort.Punctuation;
         }
 
