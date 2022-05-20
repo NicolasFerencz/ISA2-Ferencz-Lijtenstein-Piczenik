@@ -15,7 +15,7 @@ namespace MinTur.Models.Out
         {
             Name = chargingPoint.Name;
             Description = chargingPoint.Description;
-            Address = Address;
+            Address = chargingPoint.Address;
             RegionId = chargingPoint.RegionId;
            
         }

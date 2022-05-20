@@ -2,6 +2,7 @@
 using MinTur.DataAccessInterface.Facades;
 using MinTur.Domain.BusinessEntities;
 using System;
+using System.Collections.Generic;
 
 namespace MinTur.BusinessLogic.ResourceManagers
 {
@@ -15,13 +16,17 @@ namespace MinTur.BusinessLogic.ResourceManagers
         }
 
         public ChargingPoint RegisterChargingPoint(ChargingPoint chargingPoint)
-        {
-         
+        {         
             chargingPoint.ValidOrFail();
 
             int newChargingPointId = _repositoryFacade.StoreChargingPoint(chargingPoint);
 
             return _repositoryFacade.GetChargingPointById(newChargingPointId);
+        }
+    
+        public List<ChargingPoint> GetAllChargingPoints()
+        {
+            return _repositoryFacade.GetAllChargingPoints();
         }
 
     }

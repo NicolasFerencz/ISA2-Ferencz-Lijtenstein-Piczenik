@@ -4,6 +4,7 @@ using MinTur.Domain.BusinessEntities;
 using MinTur.Exceptions;
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace MinTur.DataAccess.Repositories
 {
@@ -42,6 +43,11 @@ namespace MinTur.DataAccess.Repositories
         {
             ChargingPoint chargingPoint = Context.Set<ChargingPoint>().AsNoTracking().Where(r => r.Id == chargingPointId).FirstOrDefault();
             return chargingPoint != null;
+        }
+
+        public List<ChargingPoint> GetAllChargingPoints()
+        {
+            return Context.Set<ChargingPoint>().AsNoTracking().ToList();
         }
     }
 }

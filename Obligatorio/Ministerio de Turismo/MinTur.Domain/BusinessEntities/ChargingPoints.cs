@@ -32,13 +32,13 @@ namespace MinTur.Domain.BusinessEntities
 
         private void ValidateName()
         {
-            if (Name is null || Name == "" || Name.Length > 20 || !Name.Any(c => !char.IsLetterOrDigit(c)))
+            if (Name is null || Name == "" || Name.Length > 20 || Name.Any(c => !(char.IsLetterOrDigit(c) || c == ' ')))
                 throw new InvalidRequestDataException("Charging point name must be less than 20 letters and contain only alphabetical characters");
         }
 
         private void ValidateDescription()
         {
-            if (Description is null || Name == "" || Description.Length > 60 || !Name.Any(c => !char.IsLetterOrDigit(c)))
+            if (Description is null || Name == "" || Description.Length > 60 || Name.Any(c => !(char.IsLetterOrDigit(c) || c == ' ')))
                 throw new InvalidRequestDataException("Charging point description must be less than 60 letters");
         }
 

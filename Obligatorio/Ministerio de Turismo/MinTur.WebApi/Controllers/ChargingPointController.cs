@@ -5,6 +5,8 @@ using MinTur.Domain.BusinessEntities;
 using MinTur.Models.In;
 using MinTur.Models.Out;
 using System;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace MinTur.WebApi.Controllers
 {
@@ -20,10 +22,16 @@ namespace MinTur.WebApi.Controllers
             _chargingPointManager = chargingPointManager;
         }
 
+        [HttpGet]
+        public IActionResult GetAll(){
+            List<ChargingPoint> retrievedChargingPoints = _chargingPointManager.GetAllChargingPoints();
+            List<ChargingPointDetailsModel> ChargingPointDetails = retrievedChargingPoints.Select(chargingPoint => new ChargingPointDetailsModel(chargingPoint)).ToList();
+            return Ok(ChargingPointDetails);
+        }
+
         [HttpPost]
         public IActionResult CreateChargingPoint([FromBody] ChargingPointIntentModel chargingPointIntentModel) 
         {
-            Console.WriteLine("aaaaaaa");
             ChargingPoint createdchargingPoint = _chargingPointManager.RegisterChargingPoint(chargingPointIntentModel.ToEntity());
             ChargingPointDetailsModel chargingPointDetailsModel = new ChargingPointDetailsModel(createdchargingPoint);
             return Created("api/chargingPoints/" + chargingPointDetailsModel.Name, chargingPointDetailsModel);
