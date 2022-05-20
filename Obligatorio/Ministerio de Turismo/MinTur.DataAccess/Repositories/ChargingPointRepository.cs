@@ -37,7 +37,7 @@ namespace MinTur.DataAccess.Repositories
         public ChargingPoint StoreChargingPoint(ChargingPoint chargingPoint)
         {
 
-            
+            AssertRegionExists(chargingPoint.RegionId);
             return StoreChargingPointInDb(chargingPoint);
         }
 
@@ -68,18 +68,22 @@ namespace MinTur.DataAccess.Repositories
             return chargingPoint != null;
         }
 
-<<<<<<< HEAD
-
-=======
-        public void DeleteChargingPointById(int id)
+        private void AssertRegionExists(int regionId)
         {
-            if (!ChargingPointExists(id))
+            Region retrievedRegion = Context.Set<Region>().Where(r => r.Id == regionId).FirstOrDefault();
+
+            if (retrievedRegion == null)
+                throw new ResourceNotFoundException("Could not find specified region");
+        }
+
+        public void DeleteChargingPointById(int identificator)
+        {
+            if (!ChargingPointIdentificatorExists(identificator))
                 throw new ResourceNotFoundException("Could not find specified charging point");
 
-            ChargingPoint retrievedChargingPoint = Context.Set<ChargingPoint>().Where(cp => cp.Id == id).FirstOrDefault();
+            ChargingPoint retrievedChargingPoint = Context.Set<ChargingPoint>().Where(cp => cp.Identificator == identificator).FirstOrDefault();
             Context.Remove(retrievedChargingPoint);
             Context.SaveChanges();
         }
->>>>>>> be53a3a (adding delete operation)
     }
 }

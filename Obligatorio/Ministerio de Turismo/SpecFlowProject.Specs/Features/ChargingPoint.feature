@@ -57,6 +57,16 @@ Scenario: Address greater than 30 characters
 	Then the result should be Charging point address must be less than 20 letters and contain only alphabetical characters
 
 @mytag
+Scenario: Non existent region
+	Given the identificator is 1234
+	And the name is Electric Charge
+	And the address is Rambla Wilson
+	And the region is 10
+	And the description is Full charge quickly
+	When the create button is pressed
+	Then the result should be Could not find specified region
+
+@mytag
 Scenario: Null field
 	Given the identificator is 1234
 	And the name is Electric Charge
@@ -65,3 +75,14 @@ Scenario: Null field
 	When the create button is pressed
 	Then the result should be All charging point fields are mandatory
 
+@mytag
+Scenario: Delete existing charging point
+	Given the correct identificator is 1234
+	When the delete button is pressed
+	Then the result should be charging point deleted
+	
+@mytag
+Scenario: delete non existing charging point
+	Given the incorrect identificator is 4321
+	When the delete button is pressed
+	Then the result should be Inexistent charging point

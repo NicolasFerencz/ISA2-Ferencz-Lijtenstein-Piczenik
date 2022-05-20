@@ -7,6 +7,7 @@ using MinTur.Exceptions;
 using MinTur.Models.In;
 using MinTur.WebApi.Controllers;
 using System;
+using System.Linq;
 using TechTalk.SpecFlow;
 using Xunit;
 
@@ -86,7 +87,8 @@ namespace SpecFlowProject.Specs.Steps
             // To use the multiline text or the table argument of the scenario,
             // additional string/Table parameters can be defined on the step definition
             // method. 
-
+            _dbContext.Set<Region>().Add(new Region() { Id = 1, Name = "Centro Oeste" });
+            _dbContext.SaveChanges();
             _chargingPointModel.RegionId = regionId;
         }
         [Given("the description is (.*)")]
@@ -99,6 +101,25 @@ namespace SpecFlowProject.Specs.Steps
             // method. 
 
             _chargingPointModel.Description = description;
+        }
+
+        [Given(@"the correct identificator is (.*)")]
+        public void GivenTheCorrectIdentificatorIs(int identificator)
+        {
+            _chargingPointModel.Identificator = identificator;
+            _dbContext.Set<Region>().Add(new Region() { Id = 1, Name = "Centro Oeste" });
+            _chargingPointModel.RegionId = 1;
+            _chargingPointModel.Name = "ExampleName";
+            _chargingPointModel.Address = "ExampleAddress";
+            _chargingPointModel.Description = "ExampleDescription";
+            _dbContext.SaveChanges();
+            _repositoryFacade.StoreChargingPoint(_chargingPointModel.ToEntity());
+        }
+
+        [Given(@"the incorrect identificator is (.*)")]
+        public void GivenTheIncorrectIdentificatorIs(int p0)
+        {
+           //Nothing to do.
         }
 
         [When(@"the create button is pressed")]
@@ -115,10 +136,24 @@ namespace SpecFlowProject.Specs.Steps
             }
         }
 
+        [When(@"the delete button is pressed")]
+        public void WhenTheDeleteButtonIsPressed()
+        {
+            try
+            {
+               
+                _chargingPointController.DeleteChargingPoint(_chargingPointModel.Identificator);
+            }
+            catch (Exception e)
+            {
+                _scenarioContext.Add("DeleteChargingPointException", e);
+            }
+        }
+
         [Then(@"the result should be Point of charge added")]
         public void ThenTheResultShouldBePointOfChargeAdded()
         {
-            _repositoryFacade.GetChargingPointByIdentificator(_chargingPointModel.Identificator);
+            Assert.NotNull(_repositoryFacade.GetChargingPointByIdentificator(_chargingPointModel.Identificator));
         }
         
         [Then(@"the result should be Charging point identificator must be (.*) digits")]
@@ -173,6 +208,21 @@ namespace SpecFlowProject.Specs.Steps
             Assert.NotNull(exception);
             Assert.Equal(typeof(InvalidRequestDataException), exception.GetType());
             Assert.Equal("All charging point fields are mandatory", exception.Message);
+        }
+
+        [Then(@"the result should be charging point deleted")]
+        public void ThenTheResultShouldBeChargingPointDeleted()
+        {
+            Assert.Null(_dbContext.Set<ChargingPoint>().Where(cp => cp.Identificator == _chargingPointModel.Identificator).FirstOrDefault());
+        }
+
+        [Then(@"the result should be Inexistent charging point")]
+        public void ThenTheResultShouldBeInexistentChargingPoint()
+        {
+            Exception exception = (Exception)_scenarioContext["DeleteChargingPointException"];
+            Assert.NotNull(exception);
+            Assert.Equal(typeof(ResourceNotFoundException), exception.GetType());
+            Assert.Equal("Could not find specified charging point", exception.Message);
         }
     }
 }

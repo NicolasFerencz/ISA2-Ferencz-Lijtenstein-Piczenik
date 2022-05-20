@@ -19,9 +19,7 @@ namespace MinTur.Domain.BusinessEntities
         public string Address { get; set; }
         [Required]
         public int RegionId { get; set; }
-        [Required]
-        public Region Region { get; set; }
-
+ 
         public ChargingPoint()  
         {
 
