@@ -12,6 +12,7 @@ using MinTur.Domain.SearchCriteria;
 using MinTur.BusinessLogicInterface.Pricing;
 using MinTur.WebApi.Test.Dummies;
 using System.Linq;
+using System;
 
 namespace MinTur.WebApi.Test.Controllers
 {
@@ -194,6 +195,42 @@ namespace MinTur.WebApi.Test.Controllers
             Assert.AreEqual(succesfulDeletitionMessage, retrievedResultMessage);
         }
 
+        [TestMethod]
+        public void ResorAvailablePropertySi()
+        {
+            ResortIntentModel resortIntentModel = CreateResortIntentModel();
+            Resort createdResort = CreateResort();
+
+            _resortManagerMock.Setup(r => r.RegisterResort(It.IsAny<Resort>())).Returns(createdResort);
+            ResortController resortController = new ResortController(_resortManagerMock.Object, _resortPricingCalculatorDummy);
+
+            IActionResult result = resortController.CreateResort(resortIntentModel);
+            CreatedResult createdResult = result as CreatedResult;
+
+            _resortManagerMock.VerifyAll();
+            string expected = "Si";
+            string actual = new ResortDetailsModel(createdResort).Available;
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        public void ResorAvailablePropertyNo()
+        {
+            ResortIntentModel resortIntentModel = CreateResortIntentModel();
+            Resort createdResort = CreateResortNotAvailable();
+
+            _resortManagerMock.Setup(r => r.RegisterResort(It.IsAny<Resort>())).Returns(createdResort);
+            ResortController resortController = new ResortController(_resortManagerMock.Object, _resortPricingCalculatorDummy);
+
+            IActionResult result = resortController.CreateResort(resortIntentModel);
+            CreatedResult createdResult = result as CreatedResult;
+
+            _resortManagerMock.VerifyAll();
+            string expected = "No";
+            string actual = new ResortDetailsModel(createdResort).Available;
+            Assert.AreEqual(actual, expected);
+        }
+
         #region Helpers
         private Reservation GetCreatedReservation()
         {
@@ -219,6 +256,27 @@ namespace MinTur.WebApi.Test.Controllers
                 Stars = 4,
                 ReservationMessage = "Gracias por quere venir :)",
                 TouristPointId = 2,
+                TouristPoint = new TouristPoint()
+                {
+                    Id = 2,
+                    Name = "Punta del Este"
+                }
+            };
+        }
+        private Resort CreateResortNotAvailable()
+        {
+            return new Resort()
+            {
+                Id = 3,
+                Name = "Hotel Italiano",
+                Description = "Hotel lindo con estilo italinao",
+                Address = "Calle en PDE",
+                PhoneNumber = "1849848",
+                PricePerNight = 100,
+                Stars = 4,
+                ReservationMessage = "Gracias por quere venir :)",
+                TouristPointId = 2,
+                Available = false,
                 TouristPoint = new TouristPoint()
                 {
                     Id = 2,
