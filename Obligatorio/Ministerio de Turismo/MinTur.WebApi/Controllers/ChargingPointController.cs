@@ -16,10 +16,12 @@ namespace MinTur.WebApi.Controllers
     public class ChargingPointController : ControllerBase
     {
         private readonly IChargingPointManager _chargingPointManager;
+        private readonly IRegionManager _regionManager;
 
-        public ChargingPointController(IChargingPointManager chargingPointManager)
+        public ChargingPointController(IChargingPointManager chargingPointManager,IRegionManager regionManager)
         {
             _chargingPointManager = chargingPointManager;
+            _regionManager = regionManager;
         }
 
         [HttpGet]
