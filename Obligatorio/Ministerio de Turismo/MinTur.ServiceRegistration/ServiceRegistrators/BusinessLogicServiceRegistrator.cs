@@ -23,6 +23,7 @@ namespace MinTur.ServiceRegistration.ServiceRegistrators
             serviceCollection.AddScoped<IResortManager, ResortManager>();
             serviceCollection.AddScoped<IReservationManager, ReservationManager>();
             serviceCollection.AddScoped<IReviewManager, ReviewManager>();
+            serviceCollection.AddScoped<IChargingPointManager, ChargingPointManager>();
             serviceCollection.AddScoped<IAdministratorManager, AdministratorManager>();
             serviceCollection.AddScoped<IResortPricingCalculator, ResortPricingCalculator>();
             serviceCollection.AddScoped<IAuthenticationManager, AuthenticationManager>();
