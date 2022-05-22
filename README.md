@@ -19,4 +19,8 @@ A medida de que se vayan realizando las entregas definidas al comienzo del oblig
 
 [Click aquí para ver el README.md de la entrega 1](https://github.com/NicolasFerencz/ISA2-Ferencz-Lijtenstein-Piczenik/blob/master/Entrega_1/README.md)
 
+### Entrega 2
+
+[Click aquí para ver el README.md de la entrega 2](https://github.com/NicolasFerencz/ISA2-Ferencz-Lijtenstein-Piczenik/blob/master/Entrega_2/README.md)
+
 
