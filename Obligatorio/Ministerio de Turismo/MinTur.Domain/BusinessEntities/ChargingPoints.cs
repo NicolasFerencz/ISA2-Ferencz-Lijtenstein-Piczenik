@@ -10,6 +10,8 @@ namespace MinTur.Domain.BusinessEntities
     {
         public int Id { get; set; }
         [Required]
+        public string Identificator { get; set; }
+        [Required]
         public string Name { get; set; }
         [Required]
         public string Description { get; set; }
@@ -25,9 +27,18 @@ namespace MinTur.Domain.BusinessEntities
 
         public virtual void ValidOrFail()
         {
+            ValidateIsNotNull();
+            ValidateIdentificator();
             ValidateName();
             ValidateDescription();
             ValidateAddress();
+            
+        }
+
+        private void ValidateIdentificator()
+        {
+            if (Identificator is null || Identificator.Length == 4 || Identificator.Any(c => !(char.IsDigit(c))))
+                throw new InvalidRequestDataException("Charging point identificator must be 4 digits");
         }
 
         private void ValidateName()
@@ -38,14 +49,21 @@ namespace MinTur.Domain.BusinessEntities
 
         private void ValidateDescription()
         {
-            if (Description is null || Name == "" || Description.Length > 60 || Name.Any(c => !(char.IsLetterOrDigit(c) || c == ' ')))
+            if (Description is null || Description == "" || Description.Length > 60 || Description.Any(c => !(char.IsLetterOrDigit(c) || c == ' ')))
                 throw new InvalidRequestDataException("Charging point description must be less than 60 letters");
         }
 
         private void ValidateAddress()
         {
-            if (Address is null || Name == "" || Address.Length > 30)
-                throw new InvalidRequestDataException("Charging point address must be less than 20 letters and contain only alphabetical characters");
+            if (Address is null || Address == "" || Address.Length > 30)
+                throw new InvalidRequestDataException("Charging point address must be less than 30 letters and contain only alphabetical characters");
         }
+
+        private void ValidateIsNotNull()
+        {
+            if (Identificator is null || Name is null || Description is null || Address is null || RegionId == 0)
+                throw new InvalidRequestDataException("All charging point fields are mandatory");
+        }
+
     }
 }

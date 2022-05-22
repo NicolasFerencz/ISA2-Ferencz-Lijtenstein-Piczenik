@@ -1,4 +1,4 @@
-﻿Feature: Calculator
+﻿Feature: ChargingPoint
 ![Calculator](https://specflow.org/wp-content/uploads/2020/09/calculator.png)
 Simple calculator for adding **two** numbers
 
@@ -7,67 +7,71 @@ Link to a feature: [Calculator](SpecFlowProject.Specs/Features/Calculator.featur
 
 @mytag
 Scenario: Add correct point of charge
-	Given the identificator is 1234
-	And the name is Electric Charge
+	
+	Given the name is Electric Charge
 	And the address is Rambla Wilson
-	And the region is Este
+	And the region is 1
 	And the description is Full charge quickly
 	When the create button is pressed
 	Then the result should be Point of charge added
 
+@mytag
 Scenario: Non numeric ID
-	Given the identificator is ABCD
-	And the name is Electric Charge
+	Given the name is Electric Charge
 	And the address is Rambla Wilson
-	And the region is Este
+	And the region is 1
 	And the description is Full charge quickly
 	When the create button is pressed
 	Then the result should be The id must be numeric
 
+@mytag
 Scenario: Non existent region
-	Given the identificator is 1234
-	And the name is Electric Charge
+	Given the name is Electric Charge
 	And the address is Rambla Wilson
-	And the region is Litoral Oeste
+	And the region is 10
 	And the description is Full charge quickly
 	When the create button is pressed
 	Then the result should be Inexistent region
 
+@mytag
 Scenario: Name greater than 20 characters
-	Given the identificator is 1234
-	And the name is High power electric charger 
+	Given the name is High power electric charger 
 	And the address is Rambla Wilson
-	And the region is Este
+	And the region is 1
 	And the description is Full charge quickly
 	When the create button is pressed
-	Then the result should be Name must be shorter than 20 characters
+	Then the result should be Charging point name must be less than 20 letters and contain only alphabetical characters
 
+@mytag
 Scenario: Description greater than 60 characters
 	Given the identificator is 1234
 	And the name is Electric Charge
 	And the address is Rambla Wilson
-	And the region is Este
+	And the region is 1
 	And the description is This high power electric charger is highly recommended. It will charge your car in just 1 hour and 30 minutes. It is also located in a region worth visiting
 	When the create button is pressed
-	Then the result should be Description must be shorter than 60 characters
+	Then the result should be Charging point description must be less than 60 letters
 
+@mytag
 Scenario: Address greater than 30 characters
 	Given the identificator is 1234
 	And the name is Electric Charge
 	And the address is Advenir at University Park Apartments, 10495 SW 14th Ter, Miami, FL 33174
-	And the region is Este
+	And the region is 1
 	And the description is Full charge quickly
 	When the create button is pressed
-	Then the result should be Address must be shorter than 30 characters
+	Then the result should be Charging point address must be less than 20 letters and contain only alphabetical characters
 
+@mytag
 Scenario: Null field
 	Given the identificator is 1234
 	And the name is Electric Charge
-	And the region is Este
+	And the region is 1
 	And the description is Full charge quickly
 	When the create button is pressed
 	Then the result should be Every field is mandatory
 
+@mytag
 Scenario: Repeated ID
 	Given the identificator is 1234
 	And the name is Electric Charge

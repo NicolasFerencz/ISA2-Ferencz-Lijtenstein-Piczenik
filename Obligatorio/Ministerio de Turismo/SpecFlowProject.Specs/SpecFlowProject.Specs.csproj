@@ -19,4 +19,8 @@
     <Folder Include="Hooks\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MinTur.WebApi\MinTur.WebApi.csproj" />
+  </ItemGroup>
+
 </Project>
