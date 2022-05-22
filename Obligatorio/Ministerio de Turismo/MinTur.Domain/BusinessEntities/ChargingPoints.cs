@@ -37,7 +37,7 @@ namespace MinTur.Domain.BusinessEntities
 
         private void ValidateIdentificator()
         {
-            if (Identificator is null || Identificator.Length == 4 || Identificator.Any(c => !(char.IsDigit(c))))
+            if (Identificator is null || Identificator.Length != 4 || Identificator.Any(c => !(char.IsDigit(c))))
                 throw new InvalidRequestDataException("Charging point identificator must be 4 digits");
         }
 

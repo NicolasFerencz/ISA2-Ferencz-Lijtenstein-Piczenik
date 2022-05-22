@@ -34,9 +34,15 @@ namespace MinTur.DataAccess.Repositories
 
         private void StoreChargingPointInDb(ChargingPoint chargingPoint)
         {
+            AssertRegionExists(chargingPoint.RegionId);
             Context.Set<ChargingPoint>().Add(chargingPoint);
             Context.SaveChanges();
             Context.Entry(chargingPoint).State = EntityState.Detached;
+        }
+
+        public List<ChargingPoint> GetAllChargingPoints()
+        {
+            return Context.Set<ChargingPoint>().AsNoTracking().ToList();
         }
 
         private bool ChargingPointExists(int chargingPointId)
@@ -45,9 +51,13 @@ namespace MinTur.DataAccess.Repositories
             return chargingPoint != null;
         }
 
-        public List<ChargingPoint> GetAllChargingPoints()
+        private void AssertRegionExists(int regionId)
         {
-            return Context.Set<ChargingPoint>().AsNoTracking().ToList();
+            Region retrievedRegion = Context.Set<Region>().Include(r => r.TouristPoints).
+                Where(r => r.Id == regionId).FirstOrDefault();
+
+            if (retrievedRegion == null)
+                throw new ResourceNotFoundException("Could not find specified region");
         }
     }
 }

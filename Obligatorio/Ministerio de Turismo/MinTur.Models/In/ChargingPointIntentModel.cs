@@ -9,6 +9,7 @@ namespace MinTur.Models.In
         public string Description { get; set; }
         public string Address { get; set; }
         public int RegionId { get; set; }
+        public string Identificator { get; set; }
 
         public ChargingPoint ToEntity() 
         {
@@ -18,6 +19,7 @@ namespace MinTur.Models.In
                 Description = Description,
                 Address = Address,
                 RegionId = RegionId,
+                Identificator = Identificator,
             };
         }
     }
