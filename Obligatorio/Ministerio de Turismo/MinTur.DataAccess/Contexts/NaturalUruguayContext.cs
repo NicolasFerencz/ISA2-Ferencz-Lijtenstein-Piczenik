@@ -22,6 +22,7 @@ namespace MinTur.DataAccess.Contexts
         public DbSet<AuthorizationToken> AuthorizationTokens { get; set; }
         public DbSet<GuestGroup> GuestGroups { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<ChargingPoint> ChargingPoint { get; set; }
 
         public NaturalUruguayContext(DbContextOptions options) : base(options) { }
 
@@ -33,6 +34,7 @@ namespace MinTur.DataAccess.Contexts
                 .WithMany(p => p.TouristPointCategory).HasForeignKey(t => t.CategoryId);
             modelBuilder.Entity<TouristPointCategory>().HasOne(t => t.TouristPoint)
                 .WithMany(p => p.TouristPointCategory).HasForeignKey(t => t.TouristPointId);
+            
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

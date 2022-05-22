@@ -18,6 +18,11 @@ namespace MinTur.WebApi.Controllers
         {
             _reviewManager = reviewManager;
         }
+        
+        [HttpGet]
+        public IActionResult Asd(){
+            return Ok("Bye");
+        }
 
         [HttpPost]
         public IActionResult CreateReview([FromBody] ReviewIntentModel reviewIntentModel) 
