@@ -37,7 +37,7 @@ namespace MinTur.WebApi.Controllers
             return Created("api/chargingPoints/" + chargingPointDetailsModel.Name, chargingPointDetailsModel);
         }
 
-        [HttpDelete("{id:int}")]
+        [HttpDelete("{identificator:int}")]
         public IActionResult DeleteChargingPoint(int identificator)
         {
             _chargingPointManager.DeleteChargingPointById(identificator);
