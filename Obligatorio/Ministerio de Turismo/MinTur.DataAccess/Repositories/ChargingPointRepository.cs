@@ -68,6 +68,18 @@ namespace MinTur.DataAccess.Repositories
             return chargingPoint != null;
         }
 
+<<<<<<< HEAD
 
+=======
+        public void DeleteChargingPointById(int id)
+        {
+            if (!ChargingPointExists(id))
+                throw new ResourceNotFoundException("Could not find specified charging point");
+
+            ChargingPoint retrievedChargingPoint = Context.Set<ChargingPoint>().Where(cp => cp.Id == id).FirstOrDefault();
+            Context.Remove(retrievedChargingPoint);
+            Context.SaveChanges();
+        }
+>>>>>>> be53a3a (adding delete operation)
     }
 }
