@@ -160,7 +160,7 @@ namespace MinTur.DataAccess.Facades
             return _reviewRepository.GetReviewById(reviewId);
         }
 
-        public int StoreChargingPoint(ChargingPoint chargingPoint)
+        public ChargingPoint StoreChargingPoint(ChargingPoint chargingPoint)
         {
             return _chargingPointRepository.StoreChargingPoint(chargingPoint);
         }
@@ -168,6 +168,10 @@ namespace MinTur.DataAccess.Facades
         public ChargingPoint GetChargingPointById(int chargingPointId)
         {
             return _chargingPointRepository.GetChargingPointById(chargingPointId);
+        }
+        public ChargingPoint GetChargingPointByIdentificator(int chargingPointIdentificator)
+        {
+            return _chargingPointRepository.GetChargingPointByIdentificator(chargingPointIdentificator);
         }
 
         public List<ChargingPoint> GetAllChargingPoints()

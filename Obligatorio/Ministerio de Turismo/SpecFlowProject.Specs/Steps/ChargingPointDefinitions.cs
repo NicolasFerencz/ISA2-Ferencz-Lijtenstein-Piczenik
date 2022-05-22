@@ -43,7 +43,7 @@ namespace SpecFlowProject.Specs.Steps
 
 
         [Given("the identificator is (.*)")]
-        public void GivenTheIdIs(int number)
+        public void GivenTheIdIs(int identificator)
         {
             //TODO: implement arrange (precondition) logic
             // For storing and retrieving scenario-specific data see https://go.specflow.org/doc-sharingdata
@@ -52,7 +52,7 @@ namespace SpecFlowProject.Specs.Steps
             // method. 
 
             //_scenarioContext.Pending();
-
+            _chargingPointModel.Identificator = identificator;
         }
 
         [Given("the name is (.*)")]
@@ -106,7 +106,8 @@ namespace SpecFlowProject.Specs.Steps
         {
             try
             {
-                _chargingPointController.CreateChargingPoint(_chargingPointModel);
+                Assert.NotNull(_chargingPointController.CreateChargingPoint(_chargingPointModel));
+               
             }
             catch (Exception e)
             {
@@ -114,10 +115,19 @@ namespace SpecFlowProject.Specs.Steps
             }
         }
 
-        [Then(@"the charging point with Id (.*) should exist")]
-        public void ThenTheChargingPointWithIdShouldExist(int id)
+        [Then(@"the result should be Point of charge added")]
+        public void ThenTheResultShouldBePointOfChargeAdded()
         {
-            Assert.NotNull(_dbContext.Set<ChargingPoint>().Find(id));
+            _repositoryFacade.GetChargingPointByIdentificator(_chargingPointModel.Identificator);
+        }
+        
+        [Then(@"the result should be Charging point identificator must be (.*) digits")]
+        public void ThenTheResultShouldBeChargingPointIdentificatorMustBeDigits(int p0)
+        {
+            Exception exception = (Exception)_scenarioContext["CreateChargingPointException"];
+            Assert.NotNull(exception);
+            Assert.Equal(typeof(InvalidRequestDataException), exception.GetType());
+            Assert.Equal("Charging point identificator must be 4 digits", exception.Message);
         }
 
         [Then(@"the result should be Charging point name must be less than (.*) letters and contain only alphabetical characters")]
@@ -147,59 +157,22 @@ namespace SpecFlowProject.Specs.Steps
             Assert.Equal("Charging point address must be less than 30 letters and contain only alphabetical characters", exception.Message);
         }
 
-        [Then("a long description exception for the charging point with Id (.*) should be thrown")]
-        public void ThenALongDescriptionLengthExceptionForTheChargingPointShouldBeThrown(int id)
+        [Then(@"the result should be Could not find specified region")]
+        public void ThenTheResultShouldBeCouldNotFindSpecifiedRegion()
         {
-            Exception exception = (Exception)_scenarioContext["Exception_ChargingPoint_Add"];
-            Assert.NotNull(exception);
-            Assert.Equal(typeof(InvalidRequestDataException), exception.GetType());
-            Assert.Equal("Invalid description - only up to 60 characters", exception.Message);
-        }
-
-        [Then("a long direction exception for the charging point with Id (.*) should be thrown")]
-        public void ThenALongDirectionLengthExceptionForTheChargingPointShouldBeThrown(int id)
-        {
-            Exception exception = (Exception)_scenarioContext["Exception_ChargingPoint_Add"];
-            Assert.NotNull(exception);
-            Assert.Equal(typeof(InvalidRequestDataException), exception.GetType());
-            Assert.Equal("Invalid direction - only up to 30 characters", exception.Message);
-        }
-
-        [Then("a long id exception for the charging point with Id (.*) should be thrown")]
-        public void ThenALongIdLengthExceptionForTheChargingPointShouldBeThrown(int id)
-        {
-            Exception exception = (Exception)_scenarioContext["Exception_ChargingPoint_Add"];
-            Assert.NotNull(exception);
-            Assert.Equal(typeof(InvalidRequestDataException), exception.GetType());
-            Assert.Equal("Id must be a 4 digit number", exception.Message);
-        }
-
-        [Then(@"an exception explaining that the charging point with Id (.*) is not valid should be thrown")]
-        public void ThenAnExceptionExplainingThatTheChargingPointWithIdIsNotValidShouldBeThrown(int id)
-        {
-            Exception exception = (Exception)_scenarioContext["Exception_ChargingPoint_Add"];
-            Assert.NotNull(exception);
-            Assert.Equal(typeof(InvalidRequestDataException), exception.GetType());
-            Assert.Equal("Invalid charging point name - only alphanumeric and up to 20 characters", exception.Message);
-        }
-
-
-        [Then(@"an exception explaining that the Region with id (.*) does not exists should be thrown")]
-        public void ThenAnExceptionExplainingThatTheRegionWithIdDoesNotExistsShouldBeThrown(int id)
-        {
-            Exception exception = (Exception)_scenarioContext["Exception_ChargingPoint_Add"];
+            Exception exception = (Exception)_scenarioContext["CreateChargingPointException"];
             Assert.NotNull(exception);
             Assert.Equal(typeof(ResourceNotFoundException), exception.GetType());
             Assert.Equal("Could not find specified region", exception.Message);
         }
 
-        [Then("a non-numeric id exception for the charging point with Id (.*) should be thrown")]
-        public void ThenANonNumericIdExceptionShouldBeThrown(int id)
+        [Then(@"the result should be All charging point fields are mandatory")]
+        public void ThenTheResultShouldBeAllChargingPointFieldsAreMandatory()
         {
-            Exception exception = (Exception)_scenarioContext["Exception_ChargingPoint_Add"];
+            Exception exception = (Exception)_scenarioContext["CreateChargingPointException"];
             Assert.NotNull(exception);
             Assert.Equal(typeof(InvalidRequestDataException), exception.GetType());
-            Assert.Equal("Id must be 4 digit and numeric", exception.Message);
+            Assert.Equal("All charging point fields are mandatory", exception.Message);
         }
     }
 }

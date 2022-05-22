@@ -25,19 +25,29 @@ namespace MinTur.DataAccess.Repositories
             return Context.Set<ChargingPoint>().AsNoTracking().Where(r => r.Id == chargingPointId).FirstOrDefault();
         }
 
-        public int StoreChargingPoint(ChargingPoint chargingPoint)
+        public ChargingPoint GetChargingPointByIdentificator(int chargingPointIdentificator)
         {
-            
-            StoreChargingPointInDb(chargingPoint);
-            return chargingPoint.Id;
+            if (!ChargingPointIdentificatorExists(chargingPointIdentificator))
+                throw new ResourceNotFoundException("Could not find specified charging point");
+
+            return Context.Set<ChargingPoint>().AsNoTracking().Where(r => r.Identificator == chargingPointIdentificator).FirstOrDefault();
         }
 
-        private void StoreChargingPointInDb(ChargingPoint chargingPoint)
+
+        public ChargingPoint StoreChargingPoint(ChargingPoint chargingPoint)
         {
-            AssertRegionExists(chargingPoint.RegionId);
+
+            
+            return StoreChargingPointInDb(chargingPoint);
+        }
+
+        private ChargingPoint StoreChargingPointInDb(ChargingPoint chargingPoint)
+        {
+           
             Context.Set<ChargingPoint>().Add(chargingPoint);
             Context.SaveChanges();
             Context.Entry(chargingPoint).State = EntityState.Detached;
+            return chargingPoint;
         }
 
         public List<ChargingPoint> GetAllChargingPoints()
@@ -51,13 +61,13 @@ namespace MinTur.DataAccess.Repositories
             return chargingPoint != null;
         }
 
-        private void AssertRegionExists(int regionId)
+        private bool ChargingPointIdentificatorExists(int chargingPointIdentificator)
         {
-            Region retrievedRegion = Context.Set<Region>().Include(r => r.TouristPoints).
-                Where(r => r.Id == regionId).FirstOrDefault();
-
-            if (retrievedRegion == null)
-                throw new ResourceNotFoundException("Could not find specified region");
+            ChargingPoint chargingPoint = Context.Set<ChargingPoint>().AsNoTracking().Where(r => r.Identificator == chargingPointIdentificator).FirstOrDefault();
+            
+            return chargingPoint != null;
         }
+
+
     }
 }

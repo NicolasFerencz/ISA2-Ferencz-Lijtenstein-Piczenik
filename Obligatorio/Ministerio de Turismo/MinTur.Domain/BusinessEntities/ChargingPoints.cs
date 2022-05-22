@@ -10,7 +10,7 @@ namespace MinTur.Domain.BusinessEntities
     {
         public int Id { get; set; }
         [Required]
-        public string Identificator { get; set; }
+        public int Identificator { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
@@ -19,6 +19,8 @@ namespace MinTur.Domain.BusinessEntities
         public string Address { get; set; }
         [Required]
         public int RegionId { get; set; }
+        [Required]
+        public Region Region { get; set; }
 
         public ChargingPoint()  
         {
@@ -37,7 +39,7 @@ namespace MinTur.Domain.BusinessEntities
 
         private void ValidateIdentificator()
         {
-            if (Identificator is null || Identificator.Length != 4 || Identificator.Any(c => !(char.IsDigit(c))))
+            if (Identificator < 999 || Identificator > 9999 )
                 throw new InvalidRequestDataException("Charging point identificator must be 4 digits");
         }
 
@@ -61,7 +63,7 @@ namespace MinTur.Domain.BusinessEntities
 
         private void ValidateIsNotNull()
         {
-            if (Identificator is null || Name is null || Description is null || Address is null || RegionId == 0)
+            if (Identificator == 0 || Name is null || Description is null || Address is null || RegionId == 0)
                 throw new InvalidRequestDataException("All charging point fields are mandatory");
         }
 

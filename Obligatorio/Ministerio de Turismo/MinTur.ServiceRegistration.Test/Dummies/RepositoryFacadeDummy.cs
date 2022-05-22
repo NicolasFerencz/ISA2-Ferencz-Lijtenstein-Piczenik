@@ -150,7 +150,7 @@ namespace MinTur.ServiceRegistration.Test.Dummies
             throw new NotImplementedException();
         }
 
-        public int StoreChargingPoint(ChargingPoint ChargingPoint)
+        public ChargingPoint StoreChargingPoint(ChargingPoint ChargingPoint)
         {
             throw new NotImplementedException();
         }

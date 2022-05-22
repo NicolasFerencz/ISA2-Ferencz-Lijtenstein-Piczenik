@@ -9,7 +9,7 @@ namespace MinTur.Models.In
         public string Description { get; set; }
         public string Address { get; set; }
         public int RegionId { get; set; }
-        public string Identificator { get; set; }
+        public int Identificator { get; set; }
 
         public ChargingPoint ToEntity() 
         {

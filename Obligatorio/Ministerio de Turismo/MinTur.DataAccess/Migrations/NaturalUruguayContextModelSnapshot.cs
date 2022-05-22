@@ -107,9 +107,8 @@ namespace MinTur.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Identificator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Identificator")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()

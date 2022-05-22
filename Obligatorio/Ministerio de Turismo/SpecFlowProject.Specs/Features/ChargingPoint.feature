@@ -7,8 +7,8 @@ Link to a feature: [Calculator](SpecFlowProject.Specs/Features/Calculator.featur
 
 @mytag
 Scenario: Add correct point of charge
-	
-	Given the name is Electric Charge
+	Given the identificator is 1234
+	And the name is Electric Charge
 	And the address is Rambla Wilson
 	And the region is 1
 	And the description is Full charge quickly
@@ -16,26 +16,20 @@ Scenario: Add correct point of charge
 	Then the result should be Point of charge added
 
 @mytag
-Scenario: Non numeric ID
-	Given the name is Electric Charge
+Scenario: Non 4digits numeric identificator
+	Given the identificator is 123
+	And the name is Electric Charge
 	And the address is Rambla Wilson
 	And the region is 1
 	And the description is Full charge quickly
 	When the create button is pressed
-	Then the result should be The id must be numeric
+	Then the result should be Charging point identificator must be 4 digits
 
-@mytag
-Scenario: Non existent region
-	Given the name is Electric Charge
-	And the address is Rambla Wilson
-	And the region is 10
-	And the description is Full charge quickly
-	When the create button is pressed
-	Then the result should be Inexistent region
 
 @mytag
 Scenario: Name greater than 20 characters
-	Given the name is High power electric charger 
+	Given the identificator is 1234
+	And the name is High power electric charger 
 	And the address is Rambla Wilson
 	And the region is 1
 	And the description is Full charge quickly
@@ -69,14 +63,5 @@ Scenario: Null field
 	And the region is 1
 	And the description is Full charge quickly
 	When the create button is pressed
-	Then the result should be Every field is mandatory
+	Then the result should be All charging point fields are mandatory
 
-@mytag
-Scenario: Repeated ID
-	Given the identificator is 1234
-	And the name is Electric Charge
-	And the address is Rambla Wilson
-	And the region is Este
-	And the description is Full charge quickly
-	When the create button is pressed
-	Then the result should be The ID already exists
