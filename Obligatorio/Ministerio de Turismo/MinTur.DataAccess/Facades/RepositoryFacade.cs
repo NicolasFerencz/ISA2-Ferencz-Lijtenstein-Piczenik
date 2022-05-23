@@ -19,6 +19,7 @@ namespace MinTur.DataAccess.Facades
         private ReservationRepository _reservationRepository;
         private AuthenticationTokenRepository _authenticationTokenRepository;
         private AdministratorRepository _administratorRepository;
+        private ChargingPointRepository _chargingPointRepository;
         private ReviewRepository _reviewRepository;
 
         public RepositoryFacade(DbContext context)
@@ -32,6 +33,7 @@ namespace MinTur.DataAccess.Facades
             _authenticationTokenRepository = new AuthenticationTokenRepository(_context);
             _administratorRepository = new AdministratorRepository(_context);
             _reviewRepository = new ReviewRepository(_context);
+            _chargingPointRepository = new ChargingPointRepository(_context);
         }
 
         public List<Category> GetAllCategories()
@@ -156,6 +158,30 @@ namespace MinTur.DataAccess.Facades
         public Review GetReviewById(int reviewId)
         {
             return _reviewRepository.GetReviewById(reviewId);
+        }
+
+        public ChargingPoint StoreChargingPoint(ChargingPoint chargingPoint)
+        {
+            return _chargingPointRepository.StoreChargingPoint(chargingPoint);
+        }
+
+        public ChargingPoint GetChargingPointById(int chargingPointId)
+        {
+            return _chargingPointRepository.GetChargingPointById(chargingPointId);
+        }
+        public ChargingPoint GetChargingPointByIdentificator(int chargingPointIdentificator)
+        {
+            return _chargingPointRepository.GetChargingPointByIdentificator(chargingPointIdentificator);
+        }
+
+        public List<ChargingPoint> GetAllChargingPoints()
+        {
+            return _chargingPointRepository.GetAllChargingPoints();
+        }
+
+        public void DeleteChargingPointById(int id)
+        {
+            _chargingPointRepository.DeleteChargingPointById(id);
         }
     }
 }
