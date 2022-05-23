@@ -8,7 +8,7 @@ Incluyendo los distintos links tanto a los documentos como a los videos de las c
 Para esta entrega aplicamos el ciclo BDD (Behavior-driven development) para el desarrollo de nuestra historias de usuarios.
 También aplicamos TDD (Test-driven development) para resolver los bugs, la especificación del tablero de esta entrega se encuentra en el siguiente documento.
 
-[Link al documento aquí](https://docs.google.com/document/d/1thRTr0KUbwrJ3IF60bCP5ihUJHoP9EpgrqsV31JDlyc/edit#heading=h.2rgcc3n2y4ew)
+[Link al documento aquí](https://docs.google.com/document/d/1wqIFlg0Ve70Wy87Ycmr6OKg4ytiqi1AVHja2XQOmFy8/edit?usp=sharing)
 
 ## Ejecución de las ceremonias
 En el siguiente documento se puede ver en detalle todas las ceremonias llevadas a cabo por el equipo para esta segunda entrega,
