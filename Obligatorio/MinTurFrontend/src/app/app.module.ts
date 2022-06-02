@@ -2,6 +2,7 @@ import { TokenInterceptor } from './core/interceptors/token-interceptor';
 import { ErrorHandlerInterceptor } from './core/interceptors/error-interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from "@angular/forms"
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -18,7 +19,8 @@ import { AuthGuard } from './core/guards/auth-guard';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    FormsModule,
   ],
   providers: [
     AuthGuard,
