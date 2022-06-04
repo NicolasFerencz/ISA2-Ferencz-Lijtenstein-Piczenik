@@ -1,0 +1,254 @@
+{
+  "id": "450dd55c-d288-4635-83de-9217eafc244a",
+  "version": "2.0",
+  "name": "Crear Charging point",
+  "url": "http://localhost:4200/admin/charging-points",
+  "tests": [{
+    "id": "a55dad3f-95a7-40f5-88e4-94680ad8c705",
+    "name": "Registro de puntos de carga",
+    "commands": [{
+      "id": "9b26e898-4fff-4039-96e1-cbda5eca4377",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:4200/admin/charging-points",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "96141506-3720-4354-8d2f-f5d0ca09acc6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1614x874",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "74897134-970a-487f-b4b4-cdce068e8511",
+      "comment": "",
+      "command": "click",
+      "target": "id=nombre",
+      "targets": [
+        ["id=nombre", "id"],
+        ["css=#nombre", "css:finder"],
+        ["xpath=//input[@id='nombre']", "xpath:attributes"],
+        ["xpath=//div[@id='main-content']/div/app-charging-points-list/div/div/main/div/div[2]/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "479b8781-0331-48c2-8c8b-39f2863cbfe9",
+      "comment": "",
+      "command": "click",
+      "target": "id=crear",
+      "targets": [
+        ["id=crear", "id"],
+        ["css=#crear", "css:finder"],
+        ["xpath=//button[@id='crear']", "xpath:attributes"],
+        ["xpath=//div[@id='main-content']/div/app-charging-points-list/div/div/main/div/div[2]/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Crear Nuevo Punto de Carga')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "56135729-d043-4712-9e10-1a32f5b99917",
+      "comment": "",
+      "command": "click",
+      "target": "id=nombre",
+      "targets": [
+        ["id=nombre", "id"],
+        ["css=#nombre", "css:finder"],
+        ["xpath=//input[@id='nombre']", "xpath:attributes"],
+        ["xpath=//div[@id='main-content']/div/app-charging-points-list/div/div/main/div/div[2]/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fae81ee0-ea41-4a23-8b58-c2db68f5a266",
+      "comment": "",
+      "command": "type",
+      "target": "id=nombre",
+      "targets": [
+        ["id=nombre", "id"],
+        ["css=#nombre", "css:finder"],
+        ["xpath=//input[@id='nombre']", "xpath:attributes"],
+        ["xpath=//div[@id='main-content']/div/app-charging-points-list/div/div/main/div/div[2]/div[3]/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Punto de carga"
+    }, {
+      "id": "5502d904-ad17-4c4b-8cd9-748dc872a7c5",
+      "comment": "",
+      "command": "click",
+      "target": "id=crear",
+      "targets": [
+        ["id=crear", "id"],
+        ["css=#crear", "css:finder"],
+        ["xpath=//button[@id='crear']", "xpath:attributes"],
+        ["xpath=//div[@id='main-content']/div/app-charging-points-list/div/div/main/div/div[2]/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Crear Nuevo Punto de Carga')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fb287daf-79c5-4fe4-ab78-49d3647e7768",
+      "comment": "",
+      "command": "click",
+      "target": "id=direccion",
+      "targets": [
+        ["id=direccion", "id"],
+        ["css=#direccion", "css:finder"],
+        ["xpath=//input[@id='direccion']", "xpath:attributes"],
+        ["xpath=//div[@id='main-content']/div/app-charging-points-list/div/div/main/div/div[2]/div[3]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9377cfa6-4ddc-458d-bd59-222b18c952f9",
+      "comment": "",
+      "command": "type",
+      "target": "id=direccion",
+      "targets": [
+        ["id=direccion", "id"],
+        ["css=#direccion", "css:finder"],
+        ["xpath=//input[@id='direccion']", "xpath:attributes"],
+        ["xpath=//div[@id='main-content']/div/app-charging-points-list/div/div/main/div/div[2]/div[3]/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "ellauri y 21"
+    }, {
+      "id": "fe8de31b-a684-4f72-bdf1-e33ef1c963b5",
+      "comment": "",
+      "command": "click",
+      "target": "id=crear",
+      "targets": [
+        ["id=crear", "id"],
+        ["css=#crear", "css:finder"],
+        ["xpath=//button[@id='crear']", "xpath:attributes"],
+        ["xpath=//div[@id='main-content']/div/app-charging-points-list/div/div/main/div/div[2]/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Crear Nuevo Punto de Carga')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "01431484-c06f-4dee-8b13-f967c0e7a55f",
+      "comment": "",
+      "command": "click",
+      "target": "id=descripcion",
+      "targets": [
+        ["id=descripcion", "id"],
+        ["css=#descripcion", "css:finder"],
+        ["xpath=//input[@id='descripcion']", "xpath:attributes"],
+        ["xpath=//div[@id='main-content']/div/app-charging-points-list/div/div/main/div/div[2]/div[3]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "58830305-8c51-4f39-a766-d0c8bb74bcf1",
+      "comment": "",
+      "command": "type",
+      "target": "id=descripcion",
+      "targets": [
+        ["id=descripcion", "id"],
+        ["css=#descripcion", "css:finder"],
+        ["xpath=//input[@id='descripcion']", "xpath:attributes"],
+        ["xpath=//div[@id='main-content']/div/app-charging-points-list/div/div/main/div/div[2]/div[3]/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "el mejor punto de carga"
+    }, {
+      "id": "445c1276-fea6-4650-b496-f51fa0f4b35e",
+      "comment": "",
+      "command": "click",
+      "target": "id=crear",
+      "targets": [
+        ["id=crear", "id"],
+        ["css=#crear", "css:finder"],
+        ["xpath=//button[@id='crear']", "xpath:attributes"],
+        ["xpath=//div[@id='main-content']/div/app-charging-points-list/div/div/main/div/div[2]/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Crear Nuevo Punto de Carga')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3d8f7e8b-77fc-480a-aab4-f587e8f124b2",
+      "comment": "",
+      "command": "click",
+      "target": "id=region",
+      "targets": [
+        ["id=region", "id"],
+        ["name=select", "name"],
+        ["css=#region", "css:finder"],
+        ["xpath=//select[@id='region']", "xpath:attributes"],
+        ["xpath=//div[@id='main-content']/div/app-charging-points-list/div/div/main/div/div[2]/div[3]/div[5]/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1151bd17-861a-4118-bb4b-31bde8e03a60",
+      "comment": "",
+      "command": "select",
+      "target": "id=region",
+      "targets": [],
+      "value": "label=Región Litoral Norte"
+    }, {
+      "id": "eac28991-914f-4db0-90bb-b226fdc971c6",
+      "comment": "",
+      "command": "click",
+      "target": "id=crear",
+      "targets": [
+        ["id=crear", "id"],
+        ["css=#crear", "css:finder"],
+        ["xpath=//button[@id='crear']", "xpath:attributes"],
+        ["xpath=//div[@id='main-content']/div/app-charging-points-list/div/div/main/div/div[2]/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Crear Nuevo Punto de Carga')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f798ce3f-20db-468f-b76b-3c5faf212d44",
+      "comment": "",
+      "command": "click",
+      "target": "id=crear",
+      "targets": [
+        ["id=crear", "id"],
+        ["css=#crear", "css:finder"],
+        ["xpath=//button[@id='crear']", "xpath:attributes"],
+        ["xpath=//div[@id='main-content']/div/app-charging-points-list/div/div/main/div/div[2]/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Crear Nuevo Punto de Carga')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bf78e0c5-90dc-41fa-a8f3-d63c9d57700f",
+      "comment": "",
+      "command": "click",
+      "target": "css=#cp1000 > .w-5",
+      "targets": [
+        ["css=#cp1000 > .w-5", "css:finder"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7440ae7-be43-4385-92e4-6f83bf89279a",
+      "comment": "",
+      "command": "click",
+      "target": "id=crear",
+      "targets": [
+        ["id=crear", "id"],
+        ["css=#crear", "css:finder"],
+        ["xpath=//button[@id='crear']", "xpath:attributes"],
+        ["xpath=//div[@id='main-content']/div/app-charging-points-list/div/div/main/div/div[2]/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Crear Nuevo Punto de Carga')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "f77b5cac-998d-44c9-8cdb-51850d593f0f",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:4200/admin/charging-points"],
+  "plugins": []
+}
