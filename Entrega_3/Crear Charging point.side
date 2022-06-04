@@ -225,20 +225,6 @@
         ["css=#cp1000 > .w-5", "css:finder"]
       ],
       "value": ""
-    }, {
-      "id": "e7440ae7-be43-4385-92e4-6f83bf89279a",
-      "comment": "",
-      "command": "click",
-      "target": "id=crear",
-      "targets": [
-        ["id=crear", "id"],
-        ["css=#crear", "css:finder"],
-        ["xpath=//button[@id='crear']", "xpath:attributes"],
-        ["xpath=//div[@id='main-content']/div/app-charging-points-list/div/div/main/div/div[2]/div[3]/button", "xpath:idRelative"],
-        ["xpath=//div[3]/button", "xpath:position"],
-        ["xpath=//button[contains(.,'Crear Nuevo Punto de Carga')]", "xpath:innerText"]
-      ],
-      "value": ""
     }]
   }],
   "suites": [{
