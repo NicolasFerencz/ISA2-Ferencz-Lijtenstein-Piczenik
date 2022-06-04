@@ -19,7 +19,9 @@ jobs:
       run: dotnet build --no-restore Obligatorio/Ministerio\ de\ Turismo/Ministerio\ de\ Turismo.sln
     - name: Test
       run: dotnet test --no-build --verbosity normal Obligatorio/Ministerio\ de\ Turismo/Ministerio\ de\ Turismo.sln
-        
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+      with:
+           token: ${{ secrets.YOUR_SECRET_TOKEN }}
 
- 
    
