@@ -34,4 +34,4 @@ Nos propusimos tener un documento actualizado que contenga toda la información 
 El objetivo del documento fue poder tener una noción general del esfuerzo total demandado por todas las tareas,
 y a su vez poder verificar qué tan acertados estuvimos a la hora de estimar las horas requeridas por User Story/Tarea.
 
-[Link al documento aquí](https://docs.google.com/spreadsheets/d/1v3LcyTUpKj_XPZGuETbqE5WLwMIYGPUel0LtCIyQP3s/edit?usp=sharing)
+[Link al documento aquí](https://docs.google.com/spreadsheets/d/1v3LcyTUpKj_XPZGuETbqE5WLwMIYGPUel0LtCIyQP3s/edit#gid=129355932)
