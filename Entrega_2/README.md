@@ -10,6 +10,7 @@ También aplicamos TDD (Test-driven development) para resolver los bugs, la espe
 
 [Link al documento aquí](https://docs.google.com/document/d/1wqIFlg0Ve70Wy87Ycmr6OKg4ytiqi1AVHja2XQOmFy8/edit?usp=sharing)
 
+
 ## Ejecución de las ceremonias
 En el siguiente documento se puede ver en detalle todas las ceremonias llevadas a cabo por el equipo para esta segunda entrega,
 con sus links a videos y conclusiones correspondientes.
