@@ -12,14 +12,14 @@ Estas imagenes del tablero fueron tomadas durantes las standup meetings.
 [Link al documento aquí](https://docs.google.com/document/d/1imqMjNtViad3SDm2T8tmBski47KfE04vNXkimJLCft8/edit?usp=sharing)
 
 ## Ejecución de las ceremonias
-En el siguiente documento se puede ver en detalle todas las ceremonias llevadas a cabo por el equipo para esta segunda entrega,
+En el siguiente documento se puede ver en detalle todas las ceremonias llevadas a cabo por el equipo para esta tercer entrega,
 con sus links a videos y conclusiones correspondientes.
 se incluyen:
 * StandUp Meetings
 * Retrospective
 * Reviews
 
-En este documento se detalla el calculo de las metricas a lo largo de la iteracion.
+En este documento tambien se detalla el calculo de las metricas a lo largo de la iteracion.
 
 [Link al documento aquí](https://docs.google.com/document/d/1VOAEusoqazxwoaA9mCd2puG_wpzIIZA0cUeztoufQtA/edit?usp=sharing)
 
