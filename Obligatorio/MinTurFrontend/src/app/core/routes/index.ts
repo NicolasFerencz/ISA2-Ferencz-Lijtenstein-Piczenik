@@ -40,3 +40,7 @@ export enum AdminSpecificRoutes {
 export enum ImporterRoutes{
   IMPORT = 'admin/import'
 }
+
+export enum ChargingPointsRoutes{
+  CHARGINGPOINTS = 'admin/charging-points'
+}

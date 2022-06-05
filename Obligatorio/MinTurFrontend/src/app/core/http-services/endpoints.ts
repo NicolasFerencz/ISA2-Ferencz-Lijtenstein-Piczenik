@@ -25,6 +25,12 @@ export enum ResortEndpoints {
   UPDATE_RESORT_AVAILABILITY = 'resorts/%s',
 }
 
+export enum ChargingPointsEndpoints {
+  GET_CHARGINGPOINTS = 'chargingPoints/',
+  DELETE_CHARGINGPOINTS = 'chargingPoints/%s',
+  CREATE_CHARGINGPOINTS = 'chargingPoints/',
+}
+
 export enum ReviewEndpoints {
   CREATE_REVIEW = 'reviews'
 }

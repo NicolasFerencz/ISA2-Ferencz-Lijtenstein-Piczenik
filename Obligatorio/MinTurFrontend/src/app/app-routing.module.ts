@@ -2,6 +2,8 @@ import { ResortCreateModule } from './feature-modules/resort-create/resort-creat
 import { ResortCreateComponent } from './feature-modules/resort-create/resort-create.component';
 import { ResortListModule } from './feature-modules/resort-list/resort-list.module';
 import { ResortListComponent } from './feature-modules/resort-list/resort-list.component';
+import { ChargingPointsListModule } from './feature-modules/charging-points-list/charging-points-list.module';
+import { ChargingPointsListComponent } from './feature-modules/charging-points-list/charging-points-list.component';
 import { UpdateReservationStateModule } from './feature-modules/update-reservation-state/update-reservation-state.module';
 import { UpdateReservationStateComponent } from './feature-modules/update-reservation-state/update-reservation-state.component';
 import { UpdateResortAvailabilityModule } from './feature-modules/update-resort-availability/update-resort-availability.module';
@@ -36,7 +38,7 @@ import { ReservationReportModule } from './feature-modules/reservation-report/re
 import { ImportingComponent } from './feature-modules/importing/importing.component';
 import { ImportingModule } from './feature-modules/importing/importing.module';
 // tslint:disable-next-line:max-line-length
-import { AdminSpecificRoutes, ImporterRoutes, RegionRoutes, ReservationRoutes, ResortRoutes, ReviewRoutes, SessionRoutes, TouristPointRoutes } from './core/routes';
+import { AdminSpecificRoutes, ChargingPointsRoutes, ImporterRoutes, RegionRoutes, ReservationRoutes, ResortRoutes, ReviewRoutes, SessionRoutes, TouristPointRoutes } from './core/routes';
 
 const routes: Routes = [
   { path: '', redirectTo: RegionRoutes.REGIONS, pathMatch: 'full'},
@@ -56,6 +58,7 @@ const routes: Routes = [
   { path: ReservationRoutes.UPDATE_STATE, component: UpdateReservationStateComponent, canActivate: [AuthGuard]},
   { path: ReservationRoutes.REPORT, component: ReservationReportComponent, canActivate: [AuthGuard]},
   { path: ImporterRoutes.IMPORT, component: ImportingComponent, canActivate: [AuthGuard]},
+  { path: ChargingPointsRoutes.CHARGINGPOINTS, component: ChargingPointsListComponent},
   { path: ResortRoutes.RESORT_LIST, component: ResortListComponent, canActivate: [AuthGuard]},
   { path: ResortRoutes.RESORT_CREATE, component: ResortCreateComponent, canActivate: [AuthGuard]},
   { path: '**', redirectTo: RegionRoutes.REGIONS, pathMatch: 'full'}
@@ -63,6 +66,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    ChargingPointsListModule,
     ExploreRegionsModule,
     ExploreTouristPointsModule,
     ExploreResortsModule,
